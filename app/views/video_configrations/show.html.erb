@@ -1,0 +1,21 @@
+<% content_for :javascript do %>
+  <script type="text/javascript">
+     ShopifyApp.ready(function(){
+       ShopifyApp.Bar.initialize({ title: "Product Video" });
+     });
+  </script>
+<% end %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product sku:</strong>
+  <%= @video_configration.product_sku %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= @video_configration.avatar %>
+</p>
+
+<%= link_to 'Edit', edit_video_configration_path(@video_configration) %> |
+<%= link_to 'Back', video_configrations_path %>

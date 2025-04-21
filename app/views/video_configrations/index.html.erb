@@ -1,0 +1,43 @@
+<% content_for :javascript do %>
+  <script type="text/javascript">
+     ShopifyApp.ready(function(){
+       ShopifyApp.Bar.initialize({ title: "Product Video" });
+     });
+  </script>
+<% end %>
+<div style="margin-left:20px;">
+  <%= link_to 'Upload New Video', new_video_configration_path(:shop => params[:shop]), :class => "btn btn-primary" %>  
+</div>
+
+<div class="col-sm-12">
+  <h2 class="text-center">Product Video Informations</h2>
+  <div class="table-responsive">
+    <table class="table table-condensed table-hover">
+      <thead>
+        <tr>
+          <th class="col-sm-2">Product sku</th>
+          <th class="col-sm-8">Video File</th>
+          <th class="col-sm-2">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @video_configrations.count > 0 %>
+          <% @video_configrations.each do |video_configration| %>
+            <tr>
+              <td class="col-sm-2"><%= video_configration.product_sku %></td>
+              <td class="col-sm-8"><%= video_configration.avatar %></td>
+              <td class="col-sm-2"><%= link_to 'Destroy', video_configration, method: :delete, :class => "btn btn-danger" %></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <td colspan="3" class="text-center"> No History Found </td>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+
+</div>
+
+

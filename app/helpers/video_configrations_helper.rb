@@ -1,0 +1,2 @@
+module VideoConfigrationsHelper
+end

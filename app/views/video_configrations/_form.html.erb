@@ -1,0 +1,48 @@
+<%= form_for(video_configration) do |f| %>
+  <% if video_configration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(video_configration.errors.count, "error") %> prohibited this video_configration from being saved:</h2>
+
+      <ul>
+      <% video_configration.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-sm-12">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :product_sku, "Product SKU/Name" %>
+        <%= f.text_field :product_sku, :class => 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12" style="display:none;">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :shop_name %>
+        <%= f.text_field :shop_name, :class => 'form-control', :value => params[:shop]  %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :avatar, "Video File" %>
+        <%= f.file_field :avatar %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.submit :class => "btn btn-primary", :value => "Upload Video" %>
+      </div>
+    </div>
+  </div>
+<% end %>
